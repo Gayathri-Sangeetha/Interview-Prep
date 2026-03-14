@@ -1,16 +1,107 @@
-# React + Vite
+# 🎯 InterviewPrep AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack MERN application that helps developers prepare for technical interviews using AI-powered question generation, interactive Q&A, and smart study tools.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 🔐 User Authentication — Register and login with JWT
+- 🎭 Role-Based Sessions — Generate questions by job role & experience
+- 🤖 AI-Powered Q&A — Auto-generate technical questions using Gemini API
+- 📖 Accordion UI — Expandable Q&A for clean study flow
+- 💡 AI Explanations — On-demand concept breakdowns
+- 📌 Pin Questions — Save important questions for quick access
+- 🗄️ MongoDB Storage — All sessions and questions saved to database
+- 🎨 Tailwind CSS — Responsive, modern UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend** — React, Vite, Tailwind CSS, Axios
+- **Backend** — Node.js, Express.js
+- **Database** — MongoDB Atlas (Mongoose)
+- **Auth** — JWT + bcryptjs
+- **AI** — Groq API
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/your-username/interview-prep-ai.git
+cd interview-prep-ai
+```
+
+### 2. Backend setup
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### 3. Frontend setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file inside the `backend/` folder:
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+Groq_API_KEY=your_groq_api_key
+```
+
+## 📡 API Endpoints
+
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login user |
+| GET | `/api/auth/profile` | Get user profile |
+
+### Sessions
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/sessions` | Create session + generate questions |
+| GET | `/api/sessions` | Get all sessions |
+| GET | `/api/sessions/:id` | Get single session |
+| DELETE | `/api/sessions/:id` | Delete session |
+
+### Questions
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/questions/pinned` | Get pinned questions |
+| PATCH | `/api/questions/:id/pin` | Toggle pin |
+| POST | `/api/questions/explain` | Get AI explanation |
+
+---
+
+## 🔒 .gitignore
+
+Make sure your `.gitignore` includes:
+```
+node_modules
+.env
+dist
+```
+
+---
+
+## 👩‍💻 Author
+
+Made by **Gayathri**
+
+---
+
+⭐ If you found this helpful, give it a star on GitHub!
